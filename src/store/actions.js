@@ -42,6 +42,9 @@ export default {
       context.commit('SET_ARTICLE', response.data)
     })
     .catch(err => console.log(err));
+  },
+  FETCH_LIST(context) {
+    
   }
 
 }

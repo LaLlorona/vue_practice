@@ -23,7 +23,7 @@ export default {
       })
       .catch((err) => {
         console.log(err);
-      })
+      }) 
     }, 1500)
     
 
