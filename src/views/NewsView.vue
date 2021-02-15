@@ -36,10 +36,7 @@ export default {
     // .then(() => this.$store.dispatch('FETCH_NEW_TOPSTORY'))
 
     // using settimeout works fine.
-    this.$store.dispatch('FETCH_TOPSTORY');
-    setTimeout(() => {
-      this.$store.dispatch('FETCH_NEW_TOPSTORY')
-    }, 3000)
+    
   },
   
 }
