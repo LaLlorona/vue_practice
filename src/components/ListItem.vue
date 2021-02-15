@@ -3,21 +3,25 @@
     <ul class = "news-list">
       <li v-for = "item in listItems" :key = 'item.id' class = "post">
         <div class = "points">
-          {{item.score}}
+          {{item.points || 0}}
         </div>
         <div>
           <p class = "news-title">
-            <template v-if ='item.url'>
+            <template v-if ='!item.user'>
               <a :href = "item.url">{{item.title}}</a>
+              <small>
+                by {{item.domain}}
+              </small>
             </template>
             
             <template v-else>
               <router-link :to = '`/item/${item.id}`'>{{item.title}}</router-link>
+              <small class = "link-text">
+                by <router-link class = "link-text" :to = '`/user/${item.user}`'>{{item.user}}</router-link>
+              </small>
             </template>
           </p>
-          <small class = "link-text">
-            by <router-link class = "link-text" :to = '`/user/${item.by}`'>{{item.by}}</router-link>
-          </small>
+          
         </div>
       </li>
     </ul>

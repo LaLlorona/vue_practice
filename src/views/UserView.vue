@@ -2,13 +2,13 @@
   <div>
     <user-profile>
       <div slot = 'username'>
-        {{UserInfo.userinfo.id}}
+        {{UserInfo.id}}
       </div>
       <span slot = 'time'>
-        {{'joined ' + UserInfo.user_time}}, 
+        {{'joined ' + UserInfo.created}}, 
       </span>
       <span slot = 'karma'>
-        {{UserInfo.userinfo.karma}}
+        {{UserInfo.karma}}
       </span>
     </user-profile>
   </div>
@@ -22,11 +22,7 @@ export default {
   },
   computed: {
     UserInfo() {
-      let made_time = new Date(this.$store.state.user.created * 1000);
-      return {
-        userinfo: this.$store.state.user, 
-        user_time: made_time
-      }
+      return this.$store.state.user
     }
   },
   created() {
