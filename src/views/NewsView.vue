@@ -6,7 +6,7 @@
 
 <script>
 import ListItem from '../components/ListItem'
-// import bus from '../utils/bus.js'
+import bus from '../utils/bus.js'
 export default {
   components: {
     ListItem
@@ -32,14 +32,19 @@ export default {
 
 
     //dispatch.then is not working well
-    // this.$store.dispatch('FETCH_TOPSTORY')
-    // .then(() => this.$store.dispatch('FETCH_NEW_TOPSTORY'))
+    bus.$emit('start:spinner');
+    this.$store.dispatch('FETCH_TOPSTORY')
+    .then(() => {
+      this.$store.dispatch('FETCH_NEW_TOPSTORY')
+      .then(() => bus.$emit('end:spinner'))
+    })
+    
 
     // using settimeout works fine.
-    this.$store.dispatch('FETCH_TOPSTORY');
-    setTimeout(() => {
-      this.$store.dispatch('FETCH_NEW_TOPSTORY')
-    }, 3000)
+    // this.$store.dispatch('FETCH_TOPSTORY');
+    // setTimeout(() => {
+    //   this.$store.dispatch('FETCH_NEW_TOPSTORY')
+    // }, 3000)
   },
   
 }

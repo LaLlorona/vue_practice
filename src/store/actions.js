@@ -81,10 +81,10 @@ export default {
   },
 
   FETCH_TOPSTORY(context) {
-    fetchNewsList()
+    return fetchNewsList()
     .then(response => {
       context.commit('SET_TOPSTORY', response.data)
-      return response;
+      // return response;
     })
     .catch(err => console.log(err));
   },
@@ -92,17 +92,20 @@ export default {
   FETCH_NEW_TOPSTORY(context) {
     let top_stories = this.state.news_nums;
     console.log(top_stories)
+    let stories = [];
     
     
     for (let i = 0; i < top_stories.length; i++) {
-      fetchArticles(top_stories[i])
-      .then(response => { 
-        console.log(response);
-        context.commit('UPDATE_NEWS', response.data)
-  
-      })
-      .catch(err => console.log(err)) 
+      stories.push(fetchArticles(top_stories[i]))
     }
+    return Promise.allSettled(stories).then(result => {
+      console.log(result);
+      let articles = []
+      for (let i = 0; i < result.length; i++) {
+        articles.push(result[i].value.data)
+      }
+      context.commit('SET_NEWS', articles);
+   });
 
   }
 
