@@ -38,19 +38,20 @@
 export default {
   computed: {
     listItems() {
-      const name = this.$route.name;
-      if (name === 'news') {
-        return this.$store.state.news
-      }
-      else if (name ==='ask') {
-        return this.$store.state.asks
-      }
-      else if (name === 'jobs') {
-        return this.$store.state.jobs
-      }
-      else {
-        return 'asdf'
-      }
+      return this.$store.state.list
+      // const name = this.$route.name;
+      // if (name === 'news') {
+      //   return this.$store.state.news
+      // }
+      // else if (name ==='ask') {
+      //   return this.$store.state.asks
+      // }
+      // else if (name === 'jobs') {
+      //   return this.$store.state.jobs
+      // }
+      // else {
+      //   return 'asdf'
+      // }
     }
   },
   

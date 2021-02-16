@@ -16,6 +16,9 @@ export default {
   },
   SET_ARTICLE(state, data) {
     state.article = data;
+  },
+  SET_LIST(state, data) {
+    state.list = data;
   }
 
 }
