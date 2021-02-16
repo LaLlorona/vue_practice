@@ -20,6 +20,7 @@
 
 <script>
 import UserProfile from '../components/UserProfile'
+import bus from '../utils/bus.js'
 export default {
   components: {
     UserProfile
@@ -30,9 +31,12 @@ export default {
     },
     
   },
-  created() {
-    const article_id = this.$route.params.id;
-    this.$store.dispatch('FETCH_ARTICLE', article_id)
+  // created() {
+  //   const article_id = this.$route.params.id;
+  //   this.$store.dispatch('FETCH_ARTICLE', article_id)
+  // }
+  mounted() {
+    bus.$emit('end:spinner')
   }
 }
 </script>

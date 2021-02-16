@@ -16,6 +16,7 @@
 
 <script>
 import UserProfile from '../components/UserProfile'
+import bus from '../utils/bus.js'
 export default {
   components: {
     UserProfile
@@ -25,11 +26,9 @@ export default {
       return this.$store.state.user
     }
   },
-  created() {
-    const user_name = this.$route.params.id;
-    this.$store.dispatch('FETCH_USER', user_name)
-    
-  },
+  mounted() {
+    bus.$emit('end:spinner')
+  }
 
   
 }
