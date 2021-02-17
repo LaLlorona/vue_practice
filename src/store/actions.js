@@ -8,13 +8,12 @@ import {
 } from '../api/index.js'
 
 export default {
-  FETCH_NEWS(context) {
-    return fetchNewsList()
-    .then(response => { 
-      console.log(response);
-      context.commit('SET_NEWS', response.data)
-    })
-    .catch(err => console.log(err)) 
+  
+
+  async FETCH_NEWS(context) {
+    const response = await fetchNewsList();
+    context.commit('SET_NEWS', response.data);
+    return response;
   },
 
   FETCH_JOBS(context) {
@@ -50,12 +49,14 @@ export default {
     })
     .catch(err => console.log(err));
   },
-  FETCH_LIST(context, page_name) {
-    return fetchList(page_name)
-    .then(response => {
-      context.commit('SET_LIST', response.data)
-    })
-    .catch(err => console.log(err))
-  }
+  
 
+  async FETCH_LIST(context, page_name) {
+    console.log('async version of fetch list ')
+    let response = await fetchList(page_name);
+    context.commit('SET_LIST', response.data);
+    return response
+    
+  }
+ 
 }
