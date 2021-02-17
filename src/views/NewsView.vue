@@ -19,6 +19,7 @@ export default {
       this.$store.dispatch('FETCH_NEW_TOPSTORY')
       .then(() => bus.$emit('end:spinner'))
     })
+    
   },
   
 }

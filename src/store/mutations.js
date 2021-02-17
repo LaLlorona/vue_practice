@@ -33,6 +33,7 @@ export default {
   },
   
   SET_TOPSTORY(state, data) {
+    console.log('SET_STORY RUNNING')
     state.news_nums = data;
   }
 }

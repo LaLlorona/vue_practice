@@ -82,16 +82,38 @@ export default {
 
   FETCH_TOPSTORY(context) {
     return fetchNewsList()
+    .then((response) => {
+      return new Promise((res) => {
+        console.log('hey, this is the new promise!')
+        setTimeout(() => {
+          console.log('waited for 2 second');
+          res(response);
+        }, 2000)
+      })
+    })
     .then(response => {
+      console.log('FETCH_TOPSTORY RUNNING')
       context.commit('SET_TOPSTORY', response.data)
       // return response;
     })
     .catch(err => console.log(err));
+    // return new Promise((res) => {
+    //   console.log(res);
+    //   fetchNewsList()
+    //   .then(response => {
+    //     console.log('FETCH_TOPSTORY RUNNING')
+    //     context.commit('SET_TOPSTORY', response.data)
+    //     res('yes!')
+    //   })
+      
+    //   .catch(err => console.log(err))
+    // })
+    
   },
 
   FETCH_NEW_TOPSTORY(context) {
     let top_stories = this.state.news_nums;
-    console.log(top_stories)
+    console.log('FETCH_NEWSTORY_RUNNING')
     let stories = [];
     
     
