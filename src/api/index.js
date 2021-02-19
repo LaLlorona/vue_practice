@@ -25,6 +25,8 @@ function fetchArticle(article_num) {
   return axios.get(`${config.baseUrl}/item/${article_num}.json`)
 }
 
+
+
 // function fetchNewsList() {
 //   return axios.get(`${config.baseUrl}/news/1.json`)
 //   //return axios.get(`${config.baseUrl}/item/26060748.json`)
