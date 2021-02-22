@@ -37,6 +37,7 @@ export const router = new VueRouter({
           })
           .catch((err) => {
             console.log(err);
+            next();
           })
       }
     },
@@ -57,6 +58,7 @@ export const router = new VueRouter({
           })
           .catch((err) => {
             console.log(err);
+            next();
           })
       }
     },
@@ -77,6 +79,7 @@ export const router = new VueRouter({
           })
           .catch((err) => {
             console.log(err);
+            next();
           })
       }
       
