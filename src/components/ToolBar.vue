@@ -1,10 +1,9 @@
 <template>
   <div class = "header">
-    <router-link to ="/news">News</router-link> |
-    <router-link to ="/ask">Ask</router-link> |
-    <router-link to ="/jobs">Jobs</router-link> |
-    <router-link to ="/user">Users</router-link> |
-    <router-link to ="/item">Items</router-link> |
+    <router-link to ="/news">뉴스</router-link> |
+    <router-link to ="/ask">질문</router-link> |
+    <router-link to ="/jobs">구직</router-link> |
+ 
   </div>
 </template>
 
