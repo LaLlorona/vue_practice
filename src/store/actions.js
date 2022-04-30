@@ -82,7 +82,7 @@ export default {
 
   FETCH_TOPSTORY(context) {
     return fetchNewsList()
-    .then((response) => {
+    /*.then((response) => {
       return new Promise((res) => {
         console.log('hey, this is the new promise!')
         setTimeout(() => {
@@ -90,10 +90,16 @@ export default {
           res(response);
         }, 2000)
       })
-    })
+    })*/
     .then(response => {
+      let data = response.data;
+      if (data.length > 50)
+        data = data.slice(0, 50);
+      return data;
+    })
+    .then(data => {
       console.log('FETCH_TOPSTORY RUNNING')
-      context.commit('SET_TOPSTORY', response.data)
+      context.commit('SET_TOPSTORY', data)
       // return response;
     })
     .catch(err => console.log(err));

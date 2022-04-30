@@ -45,6 +45,10 @@ export default {
 </script>
 
 <style>
+body {
+  font-family: Roboto, sans-serif;
+}
+
 a {
   color: #34495e;
   text-decoration: none;
@@ -55,18 +59,15 @@ a:hover {
   text-decoration: underline;
 }
 
-a.router-link-exact-active {
-  text-decoration: underline;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
 }
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity 0.5s ease;
-  }
 
-  .fade-enter-from,
-  .fade-leave-to {
-    opacity: 0;
-  }
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>
 
 
